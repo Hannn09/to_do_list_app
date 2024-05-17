@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:to_do_list_app/presentation/pages/task_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -9,6 +10,19 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    startTimer();
+    super.initState();
+  }
+
+  startTimer() async {
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const TaskScreen()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
